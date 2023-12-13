@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             BloodTypesSeeder::class,
             NationalitiesSeeder::class,
             ReligionsSeeder::class,
+            GradesSeeder::class,
+            // ClassroomsSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
