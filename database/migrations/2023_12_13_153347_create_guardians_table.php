@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('father_national_id');
             $table->string('father_passport_id');
             $table->string('father_phone');
+            $table->string('father_job');
             $table->unsignedBigInteger('father_nationality_id');
             $table->unsignedBigInteger('father_blood_type_id');
             $table->unsignedBigInteger('father_religion_id');
@@ -35,6 +36,7 @@ return new class extends Migration
             $table->string('mother_national_id');
             $table->string('mother_passport_id');
             $table->string('mother_phone');
+            $table->string('mother_job');
             $table->unsignedBigInteger('mother_nationality_id');
             $table->unsignedBigInteger('mother_blood_type_id');
             $table->unsignedBigInteger('mother_religion_id');

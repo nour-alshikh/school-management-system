@@ -106,4 +106,10 @@ class SectionController extends Controller
         toastr()->success(trans('messages.deleted_message'));
         return redirect()->route('sections.index');
     }
+
+    public function gotocounter()
+    {
+        return "23232";
+        return view('pages.counter-container');
+    }
 }

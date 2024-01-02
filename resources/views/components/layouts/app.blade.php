@@ -36,7 +36,9 @@
 
             @yield('page-header')
 
-            @yield('content')
+            {{ $slot }}
+
+
             <!--=================================
  wrapper -->
 

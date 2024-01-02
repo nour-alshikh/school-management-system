@@ -7,7 +7,7 @@ return [
     'actions' => 'العمليات',
     'edit' => 'تعديل',
     'delete' => 'حذف',
-    'add_class' => 'اضافة فصل',
+    'add_classroom' => 'اضافة فصل',
     'edit_class' => 'تعديل فصل',
     'name_ar' => 'الاسم بالعربية',
     'name_en' => 'الاسم بالانجليزية',

@@ -9,4 +9,8 @@ return [
     'classrooms_list' => 'قائمة الفصول الدراسية',
     'sections' => 'الاقسام',
     'sections_list' => 'قائمة الاقسام',
+    'parents' => 'أولياء الأمور',
+    'parents_list' => 'قائمة أولياء الأمور',
+    'add_parent' => 'اضافة ولي أمر',
+
 ];

@@ -63,8 +63,17 @@
                     </li>
                     <!-- menu item chat-->
                     <li>
-                        <a href="accordions.html"><i class="ti-comments"></i><span class="right-nav-text">Chat
-                            </span></a>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#parents-menu">
+                            <div class="pull-left"> <i class="ti-comments"></i>
+                                <span class="right-nav-text">{{ trans('main.parents') }}</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="parents-menu" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('sections.index') }}">{{ trans('main.parents_list') }}</a> </li>
+                            <li> <a href="{{ url('add-parents') }}">{{ trans('main.add_parent') }}</a> </li>
+                        </ul>
                     </li>
                     <!-- menu item mailbox-->
                     <li>

@@ -9,6 +9,9 @@ return [
     'classrooms_list' => 'Classrooms List',
     'sections' => 'Sections',
     'sections_list' => 'Sections List',
+    'parents' => 'Parents',
+    'parents_list' => 'Parents List',
+    'add_parent' => 'Add Parent',
 
 
 

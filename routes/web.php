@@ -4,25 +4,17 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\sections\SectionController;
+use App\Livewire\AddParents;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'verified']
 ], function () {
+
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::get('/', function () {
         return view('dashboard');
@@ -39,6 +31,16 @@ Route::group([
     ##################### sections #####################
     Route::resource('sections', SectionController::class);
     Route::get('/get-classes/{id}', [SectionController::class, 'get_classes']);
+
+
+    // Route::get('/counter', Counter::class);
+
+    ##################### parents #####################
+    Route::get('/add-parents', AddParents::class);
+
+    Livewire::setUpdateRoute(function ($handle) {
+        return Route::post('/livewire/update', $handle);
+    });
 });
 
 Route::middleware('auth')->group(function () {

@@ -40,7 +40,7 @@
                 @endif
 
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    {{ trans('classrooms.add_class') }}
+                    {{ trans('classrooms.add_classroom') }}
                 </button>
 
                 <button type="button" class="button x-small" id="delete-all-btn">
