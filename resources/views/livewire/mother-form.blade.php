@@ -90,13 +90,13 @@
             </div>
             <div class="form-group col">
                 <label for="inputZip">{{ trans('parents.m_religion') }}</label>
-                <select class="custom-select my-1 mr-sm-2" wire:model="m_relgion">
+                <select class="custom-select my-1 mr-sm-2" wire:model="m_religion">
                     <option selected>{{ trans('parents.choose') }}...</option>
                     @foreach ($religions as $religion)
                         <option value="{{ $religion->id }}">{{ $religion->name }}</option>
                     @endforeach
                 </select>
-                @error('m_relgion')
+                @error('m_religion')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -120,15 +120,27 @@
             type="button">{{ trans('parents.Next') }}
         </button>
         @endif --}}
-        <div class="d-flex justify-content-between">
 
-            <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitSecondStep()"
-                type="button">{{ trans('parents.next') }}
-            </button>
-            <button class="btn btn-danger btn-sm s btn-lg pull-right" wire:click="back(1)"
-                type="button">{{ trans('parents.previous') }}
-            </button>
-        </div>
+        @if ($update_mode)
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitEditSecondStep()"
+                    type="button">{{ trans('parents.next') }}
+                </button>
+                <button class="btn btn-danger btn-sm s btn-lg pull-right" wire:click="editBack(1)"
+                    type="button">{{ trans('parents.previous') }}
+                </button>
+            </div>
+        @else
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitSecondStep()"
+                    type="button">{{ trans('parents.next') }}
+                </button>
+                <button class="btn btn-danger btn-sm s btn-lg pull-right" wire:click="back(1)"
+                    type="button">{{ trans('parents.previous') }}
+                </button>
+            </div>
+        @endif
+
 
     </div>
 </div>

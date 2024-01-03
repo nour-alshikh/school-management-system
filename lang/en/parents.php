@@ -32,5 +32,13 @@ return [
     'next' => "Next",
     'previous' => "Previous",
     'confirm' => "Confirm",
+    'actions' => "Actions",
     'confirm_message' => "Are you Sure?",
+    'attachments' => "Attachments",
+    'add_parent' => "Add Parent",
+    'show_parents' => "Show Parents",
+    'delete_parent' => "Delete Parent",
+    'close' => "Close",
+    'submit' => "Submit",
+
 ];

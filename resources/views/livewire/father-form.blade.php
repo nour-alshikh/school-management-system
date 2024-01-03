@@ -106,13 +106,13 @@
             </div>
             <div class="form-group col">
                 <label for="inputZip">{{ trans('parents.f_religion') }}</label>
-                <select class="custom-select my-1 mr-sm-2" wire:model="f_relgion">
+                <select class="custom-select my-1 mr-sm-2" wire:model="f_religion">
                     <option selected>{{ trans('parents.choose') }}...</option>
                     @foreach ($religions as $religion)
                         <option value="{{ $religion->id }}">{{ $religion->name }}</option>
                     @endforeach
                 </select>
-                @error('f_relgion')
+                @error('f_religion')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -136,10 +136,15 @@
             type="button">{{ trans('parents.Next') }}
         </button>
         @endif --}}
-
-        <button class="btn btn-success btn-sm s btn-lg pull-right" wire:click="submitFirstStep()"
-            type="button">{{ trans('parents.next') }}
-        </button>
+        @if ($update_mode)
+            <button class="btn btn-success btn-sm s btn-lg pull-right" wire:click="submitEditFirstStep()"
+                type="button">{{ trans('parents.next') }}
+            </button>
+        @else
+            <button class="btn btn-success btn-sm s btn-lg pull-right" wire:click="submitFirstStep()"
+                type="button">{{ trans('parents.next') }}
+            </button>
+        @endif
 
     </div>
 </div>

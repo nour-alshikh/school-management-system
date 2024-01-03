@@ -20,6 +20,7 @@
                 <div class="card-body">
                     <div>
 
+
                         @if (!empty($success_message))
                             <div class="alert alert-success" id="success-alert">
                                 <button type="button" class="close" data-dismiss="alert">
@@ -38,41 +39,43 @@
                         @endif
 
 
-
-
-                        <div class="stepwizard">
-                            <div class="stepwizard-row setup-panel">
-                                <div class="stepwizard-step">
-                                    <a href="#step1" type="button"
-                                        class="btn btn-circle {{ $current_step != 1 ? 'btn-default' : 'btn-success' }}">
-                                        1
-                                    </a>
-                                    <p>{{ trans('parents.f_info') }}</p>
-                                </div>
-                                <div class="stepwizard-step">
-                                    <a href="#step2" type="button"
-                                        class="btn btn-circle {{ $current_step != 2 ? 'btn-default' : 'btn-success' }}">
-                                        2
-                                    </a>
-                                    <p> {{ trans('parents.m_info') }}</p>
-                                </div>
-                                <div class="stepwizard-step">
-                                    <a href="#step3" type="button"
-                                        class="btn btn-circle {{ $current_step != 3 ? 'btn-default' : 'btn-success' }}">
-                                        3
-                                    </a>
-                                    <p> {{ trans('parents.confirm_information') }}</p>
+                        @if ($show_table)
+                            @include('livewire.show-parents')
+                        @else
+                            <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="showTable"
+                                type="button">{{ trans('parents.show_parents') }}</button>
+                            <div class="stepwizard">
+                                <div class="stepwizard-row setup-panel">
+                                    <div class="stepwizard-step">
+                                        <a href="#step1" type="button"
+                                            class="btn btn-circle {{ $current_step != 1 ? 'btn-default' : 'btn-success' }}">
+                                            1
+                                        </a>
+                                        <p>{{ trans('parents.f_info') }}</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step2" type="button"
+                                            class="btn btn-circle {{ $current_step != 2 ? 'btn-default' : 'btn-success' }}">
+                                            2
+                                        </a>
+                                        <p> {{ trans('parents.m_info') }}</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step3" type="button"
+                                            class="btn btn-circle {{ $current_step != 3 ? 'btn-default' : 'btn-success' }}">
+                                            3
+                                        </a>
+                                        <p> {{ trans('parents.confirm_information') }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        @include('livewire.father-form')
+                            @include('livewire.father-form')
 
-                        @include('livewire.mother-form')
+                            @include('livewire.mother-form')
 
-                        @include('livewire.confirmation-form')
-
-
+                            @include('livewire.confirmation-form')
+                        @endif
                     </div>
                 </div>
             </div>

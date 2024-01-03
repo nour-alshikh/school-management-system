@@ -71,8 +71,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="parents-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('sections.index') }}">{{ trans('main.parents_list') }}</a> </li>
-                            <li> <a href="{{ url('add-parents') }}">{{ trans('main.add_parent') }}</a> </li>
+                            <li> <a href="{{ url('add-parents') }}">{{ trans('main.parents_list') }}</a> </li>
+
                         </ul>
                     </li>
                     <!-- menu item mailbox-->

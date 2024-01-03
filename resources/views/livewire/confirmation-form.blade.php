@@ -107,13 +107,13 @@
             </div>
             <div class="form-group col">
                 <label for="inputZip">{{ trans('parents.f_religion') }}</label>
-                <select class="custom-select my-1 mr-sm-2" wire:model="f_relgion">
+                <select class="custom-select my-1 mr-sm-2" wire:model="f_religion">
                     <option selected>{{ trans('parents.choose') }}...</option>
                     @foreach ($religions as $religion)
                         <option value="{{ $religion->id }}">{{ $religion->name }}</option>
                     @endforeach
                 </select>
-                @error('f_relgion')
+                @error('f_religion')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -215,13 +215,13 @@
             </div>
             <div class="form-group col">
                 <label for="inputZip">{{ trans('parents.m_religion') }}</label>
-                <select disabled class="custom-select my-1 mr-sm-2" wire:model="m_relgion">
+                <select disabled class="custom-select my-1 mr-sm-2" wire:model="m_religion">
                     <option selected>{{ trans('parents.choose') }}...</option>
                     @foreach ($religions as $religion)
                         <option value="{{ $religion->id }}">{{ $religion->name }}</option>
                     @endforeach
                 </select>
-                @error('m_relgion')
+                @error('m_religion')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -231,25 +231,43 @@
         <div class="form-group">
             <label for="exampleFormControlTextarea1">{{ trans('parents.m_Address') }}</label>
             <textarea readonly class="form-control" wire:model="m_address" id="exampleFormControlTextarea1" rows="4"></textarea>
-            @error('Address_Father')
+            @error('m_address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">{{ trans('parents.attachments') }}</label>
+            <input type="file" wire:model="photos" multiple accept="image/*">
+
+        </div>
+
         <div class="form-group">
             <h4>
                 {{ trans('parents.confirm_message') }}
             </h4>
         </div>
 
+        @if ($update_mode)
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitUpdateForm"
+                    type="button">{{ trans('parents.confirm') }}
+                </button>
+                <button class="btn btn-danger btn-sm  btn-lg pull-right" wire:click="editBack(1)"
+                    type="button">{{ trans('parents.previous') }}
+                </button>
+            </div>
+        @else
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitForm"
+                    type="button">{{ trans('parents.confirm') }}
+                </button>
+                <button class="btn btn-danger btn-sm  btn-lg pull-right" wire:click="back(1)"
+                    type="button">{{ trans('parents.previous') }}
+                </button>
+            </div>
+        @endif
 
-        <div class="d-flex justify-content-between">
-            <button class="btn btn-success btn-sm  btn-lg pull-right" wire:click="submitForm"
-                type="button">{{ trans('parents.confirm') }}
-            </button>
-            <button class="btn btn-danger btn-sm  btn-lg pull-right" wire:click="back(1)"
-                type="button">{{ trans('parents.previous') }}
-            </button>
-        </div>
 
     </div>
 </div>

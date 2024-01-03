@@ -32,5 +32,9 @@ return [
     'next' => "التالي",
     'previous' => "السابق",
     'confirm' => "تأكيد",
+    'actions' => "خيارات",
     'confirm_message' => "هل أنت متأكد؟",
+    'attachments' => "المرفقات",
+    'add_parent' => "أضف ولي أمر",
+    'show_parents' => "عرض أولياء الأمور",
 ];
