@@ -37,4 +37,9 @@ return [
     'attachments' => "المرفقات",
     'add_parent' => "أضف ولي أمر",
     'show_parents' => "عرض أولياء الأمور",
+    'delete_parent' => "حذف ولي أمر",
+    'submit' => 'تأكيد',
+    'close' => 'خروج',
+    'delete_warning_message' => 'هل أنت متاكد من عملية الحذف؟',
+
 ];

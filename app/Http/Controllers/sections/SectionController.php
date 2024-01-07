@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateSectionRequest;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
 
 class SectionController extends Controller
 {
@@ -23,7 +24,8 @@ class SectionController extends Controller
         $grades = Grade::with(['sections'])->get();
         // return $grades;
         $grades_list = Grade::all();
-        return view('pages.sections.index', compact('grades', 'grades_list'));
+        $teachers = Teacher::all();
+        return view('pages.sections.index', compact('grades', 'grades_list' , 'teachers'));
     }
 
     public function get_classes($id)
@@ -51,6 +53,7 @@ class SectionController extends Controller
             $section->grade_id = $request->grade_id;
             $section->classroom_id = $request->class_id;
             $section->save();
+            $section->teachers()->attach($request->teacher_id);
             toastr()->success(trans('messages.added_message'));
             return redirect()->route('sections.index');
         } catch (\Exception $e) {
@@ -107,9 +110,5 @@ class SectionController extends Controller
         return redirect()->route('sections.index');
     }
 
-    public function gotocounter()
-    {
-        return "23232";
-        return view('pages.counter-container');
-    }
+
 }

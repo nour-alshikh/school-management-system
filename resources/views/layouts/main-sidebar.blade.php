@@ -75,26 +75,26 @@
 
                         </ul>
                     </li>
-                    <!-- menu item mailbox-->
-                    <li>
-                        <a href="mail-box.html"><i class="ti-email"></i><span class="right-nav-text">Mail
-                                box</span> <span class="badge badge-pill badge-warning float-right mt-1">HOT</span> </a>
-                    </li>
+
                     <!-- menu item Charts-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#teachers">
                             <div class="pull-left"><i class="ti-pie-chart"></i><span
-                                    class="right-nav-text">Charts</span></div>
+                                    class="right-nav-text">{{ trans('main.teachers') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="chart-js.html">Chart.js</a> </li>
-                            <li> <a href="chart-morris.html">Chart morris </a> </li>
-                            <li> <a href="chart-sparkline.html">Chart Sparkline</a> </li>
+                        <ul id="teachers" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('teachers.index') }}">{{ trans('main.teachers_list') }}</a> </li>
+
                         </ul>
                     </li>
-
+                    <!-- menu item mailbox-->
+                    <li>
+                        <a href="mail-box.html"><i class="ti-email"></i><span class="right-nav-text">Mail
+                                box</span>
+                            <span class="badge badge-pill badge-warning float-right mt-1">HOT</span> </a>
+                    </li>
                     <!-- menu font icon-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">

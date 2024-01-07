@@ -40,5 +40,7 @@ return [
     'delete_parent' => "Delete Parent",
     'close' => "Close",
     'submit' => "Submit",
+    'delete_warning_message' => 'Are you sure you want to delete this class?',
+
 
 ];

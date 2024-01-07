@@ -11,6 +11,7 @@ return [
     'name_ar' => 'Name (AR)',
     'name_en' => 'Name (EN)',
     'section' => 'section',
+    'teachers' => 'Teachers',
     'status' => 'Status',
     'active' => 'Active',
     'disabled' => 'Disabled',

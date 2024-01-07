@@ -16,7 +16,7 @@
                         {{ $guardian->email }}
                         {{ $guardian->id }}
                     </h5>
-                    {{ trans('guardian.delete_warning_message') }}
+                    {{ trans('parents.delete_warning_message') }}
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"

@@ -176,7 +176,7 @@ class AddParents extends Component
     {
         $this->show_table = false;
         $this->update_mode = true;
-        $data = Guardian::findOrFail($id);
+        $data = Guardian::where('id', $id)->first();
         $this->guardian_id = $id;
         $this->email = $data->email;
         $this->f_name = $data->getTranslation('father_name', 'ar');

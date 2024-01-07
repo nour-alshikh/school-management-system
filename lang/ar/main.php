@@ -12,5 +12,6 @@ return [
     'parents' => 'أولياء الأمور',
     'parents_list' => 'قائمة أولياء الأمور',
     'add_parent' => 'اضافة ولي أمر',
-
+    'teachers' => 'المعلمين',
+    'teachers_list' => 'قائمة المعلمين',
 ];

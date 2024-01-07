@@ -12,6 +12,8 @@ return [
     'parents' => 'Parents',
     'parents_list' => 'Parents List',
     'add_parent' => 'Add Parent',
+    'teachers' => 'Teachers',
+    'teachers_list' => 'Teachers List',
 
 
 

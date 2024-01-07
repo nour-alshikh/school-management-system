@@ -4,6 +4,7 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\sections\SectionController;
+use App\Http\Controllers\Teachers\TeacherController;
 use App\Livewire\AddParents;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -32,11 +33,11 @@ Route::group([
     Route::resource('sections', SectionController::class);
     Route::get('/get-classes/{id}', [SectionController::class, 'get_classes']);
 
-
-    // Route::get('/counter', Counter::class);
-
     ##################### parents #####################
     Route::get('/add-parents', AddParents::class);
+
+    ##################### sections #####################
+    Route::resource('teachers', TeacherController::class);
 
     Livewire::setUpdateRoute(function ($handle) {
         return Route::post('/livewire/update', $handle);

@@ -32,7 +32,8 @@
                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#delete{{ $guardian->id }}" title="{{ trans('parents.delete') }}"><i
-                                class="fa fa-trash"></i></button>
+                                class="fa fa-trash"></i>
+                        </button>
                         @include('livewire.modals.delete-parent')
                     </td>
                 </tr>
