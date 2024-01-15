@@ -21,16 +21,19 @@ class TeacherController extends Controller
         $teachers = $this->teacher->getAllTeachers();
         return view('pages.teachers.index', compact('teachers'));
     }
+
     public function create()
     {
         $specializations = $this->teacher->getSpecializations();
         $genders = $this->teacher->getGenders();
         return view('pages.teachers.create', compact('specializations', 'genders'));
     }
+
     public function store(StoreTeacherRequest $request)
     {
         return $this->teacher->store($request);
     }
+
     public function edit($id)
     {
         $teacher = $this->teacher->edit($id);
@@ -38,10 +41,12 @@ class TeacherController extends Controller
         $genders = $this->teacher->getGenders();
         return view('pages.teachers.edit', compact('teacher', 'specializations', 'genders'));
     }
+
     public function update(Request $request)
     {
         return $this->teacher->update($request);
     }
+
     public function destroy(Request $request)
     {
         return $this->teacher->destroy($request);

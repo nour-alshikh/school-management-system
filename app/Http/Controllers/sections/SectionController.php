@@ -22,10 +22,9 @@ class SectionController extends Controller
     public function index()
     {
         $grades = Grade::with(['sections'])->get();
-        // return $grades;
         $grades_list = Grade::all();
         $teachers = Teacher::all();
-        return view('pages.sections.index', compact('grades', 'grades_list' , 'teachers'));
+        return view('pages.sections.index', compact('grades', 'grades_list', 'teachers'));
     }
 
     public function get_classes($id)
@@ -53,7 +52,7 @@ class SectionController extends Controller
             $section->grade_id = $request->grade_id;
             $section->classroom_id = $request->class_id;
             $section->save();
-            $section->teachers()->attach($request->teacher_id);
+            $section->teachers()->sync($request->teacher_id);
             toastr()->success(trans('messages.added_message'));
             return redirect()->route('sections.index');
         } catch (\Exception $e) {
@@ -80,15 +79,21 @@ class SectionController extends Controller
      */
     public function update(UpdateSectionRequest $request)
     {
-
-        return $request;
         try {
             $request->validated();
             $section = Section::findOrFail($request->id);
             $section->name = ['ar' => $request->name, 'en' => $request->name_en];
             $section->grade_id = $request->grade_id;
             $section->classroom_id = $request->class_id;
+
+
+            $section->teachers()->sync($request->teacher_id);
             $section->save();
+            // if (isset($request->teacher_id)) {
+            //     $section->teachers->sync($request->teacher_id);
+            // } else {
+            //     $section->teachers->sync(array());
+            // }
             toastr()->success(trans('messages.edited_message'));
             return redirect()->route('sections.index');
         } catch (\Exception $e) {
@@ -105,10 +110,11 @@ class SectionController extends Controller
      */
     public function destroy(Request $request)
     {
-        Section::findOrFail($request->id)->delete();
+        $section = Section::findOrFail($request->id);
+        $section->teachers()->detach();
+        $section->delete();
+
         toastr()->success(trans('messages.deleted_message'));
         return redirect()->route('sections.index');
     }
-
-
 }

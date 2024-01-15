@@ -68,10 +68,10 @@
                                                             $i = 0;
                                                         @endphp
 
-                                                        @php
-                                                            $i++;
-                                                        @endphp
                                                         @foreach ($grade->sections as $section)
+                                                            @php
+                                                                $i++;
+                                                            @endphp
                                                             <tr>
                                                                 <td>{{ $i }}</td>
                                                                 <td>{{ $section->name }}</td>
