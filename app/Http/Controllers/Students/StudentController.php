@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return $this->student->index();
     }
 
     /**
@@ -56,17 +56,17 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
+        return $this->student->edit($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(StoreStudentRequest $request)
     {
-        //
+        return $this->student->update($request);
     }
 
     /**
