@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'pesonal_info' => 'المعلومات الشخصية',
+    'name' => 'اسم الطالب',
+    'notes' => 'ملاحظات',
+    'actions' => 'العمليات',
+    'edit' => 'تعديل',
+    'grade' => 'المرحلة الدراسية',
+    'section' => 'القسم',
+    'classroom' => 'الفصل الدراسي',
+    'guardian' => 'ولي الأمر',
+    'email' => 'البريد الالكتروني',
+    'password' => 'كلمة السر',
+    'gender' => 'النوع',
+    'nationality' => 'الجنسية',
+    'blood_type' => 'فصيلة الدم',
+    'delete' => 'حذف',
+    'add_student' => 'اضافة طالب',
+    'edit_student' => 'تعديل طالب',
+    'name_ar' => 'الاسم بالعربية',
+    'name_en' => 'الاسم بالانجليزية',
+    'notes' => 'ملاحظات',
+    'choose' => 'اختر',
+    'birth_date' => 'تاريخ الميلاد',
+    'student_info' => 'معلومات الطالب',
+    'academic_year' => 'السنة الدراسية',
+    'submit' => 'تأكيد',
+    'close' => 'خروج',
+    'added_message' => 'تم اضافة الطالب بنجاح',
+    'edit_student' => 'تعديل الطالب',
+    'delete_student' => 'حذف الطالب',
+    'delete_warning_message' => 'هل أنت متاكد من عملية الحذف؟',
+
+
+];

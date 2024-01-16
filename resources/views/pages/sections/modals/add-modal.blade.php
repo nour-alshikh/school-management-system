@@ -51,7 +51,7 @@
 
                         </select>
                     </div>
-                      <div class="form-group">
+                    <div class="form-group">
                         <label for="teacher_id" class="mr-sm-2">{{ trans('sections.teachers') }}
                             :</label>
                         <select multiple class="form-select" style="width: 100%" name="teacher_id[]">
@@ -85,8 +85,6 @@
                         success: function(data) {
                             $('select[name="class_id"]').empty();
                             $.each(data, function(key, value) {
-                                console.log(key);
-                                console.log(value);
                                 $('select[name="class_id"]').append(
                                     '<option value="' + key + '">' + value +
                                     '</option>'

@@ -14,4 +14,6 @@ return [
     'add_parent' => 'اضافة ولي أمر',
     'teachers' => 'المعلمين',
     'teachers_list' => 'قائمة المعلمين',
+    'students' => 'الطلاب',
+    'add_new_student' => 'اضافة طالب جديد',
 ];
