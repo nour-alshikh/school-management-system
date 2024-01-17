@@ -31,6 +31,8 @@ return [
     'edit_student' => 'تعديل الطالب',
     'delete_student' => 'حذف الطالب',
     'delete_warning_message' => 'هل أنت متاكد من عملية الحذف؟',
+    'delete_student' => 'حذف الطالب',
+    'all' => 'كل الطلاب',
 
 
 ];

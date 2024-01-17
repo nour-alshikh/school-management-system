@@ -72,8 +72,9 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(Request $request)
     {
-        //
+
+        return $this->student->delete($request);
     }
 }

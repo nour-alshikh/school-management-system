@@ -95,4 +95,11 @@ class StudentRepository implements StudentRepositoryInterface
         $sections_list = Section::where('classroom_id', $id)->pluck('name', 'id');
         return $sections_list;
     }
+    public function delete($request)
+    {
+        $student = Student::findOrFail($request->id);
+        $student->delete();
+        toastr()->success(trans('messages.deleted_message'));
+        return redirect()->route('students.index');
+    }
 }

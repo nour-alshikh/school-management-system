@@ -78,6 +78,8 @@
                                         </button>
                                     </td>
 
+                                    @include('pages.students.modals.delete-modal')
+
                                 </tr>
                             @endforeach
                         </tbody>

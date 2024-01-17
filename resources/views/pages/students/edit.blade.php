@@ -157,8 +157,10 @@
                                     <div class="form-group col">
                                         <label for="inputZip">{{ trans('students.classroom') }}</label>
                                         <select class="custom-select my-1 mr-sm-2" name="classroom">
-                                            <option disabled selected>{{ trans('students.choose') }}...</option>
-
+                                            <option disabled>{{ trans('students.choose') }}...</option>
+                                            <option selected value="{{ $student->classroom->id }}">
+                                                {{ $student->classroom->class_name }}
+                                            </option>
                                         </select>
                                         @error('classroom')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -167,8 +169,10 @@
                                     <div class="form-group col">
                                         <label for="inputZip">{{ trans('students.section') }}</label>
                                         <select class="custom-select my-1 mr-sm-2" name="section">
-                                            <option disabled selected>{{ trans('students.choose') }}...</option>
-
+                                            <option disabled>{{ trans('students.choose') }}...</option>
+                                            <option selected value="{{ $student->section->id }}">
+                                                {{ $student->section->name }}
+                                            </option>
                                         </select>
                                         @error('section')
                                             <div class="alert alert-danger">{{ $message }}</div>

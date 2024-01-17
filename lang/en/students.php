@@ -36,6 +36,7 @@ return [
     'delete_chosen_students' => 'Delete chosen studentes',
     'search_with_student' => 'Search by student',
     'all' => 'All students',
+    'delete_student' => 'Delete Student',
 
 
 ];

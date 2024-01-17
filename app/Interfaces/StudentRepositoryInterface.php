@@ -10,4 +10,5 @@ interface StudentRepositoryInterface
     public function update($request);
     public function get_sections($id);
     public function store($request);
+    public function delete($request);
 }
