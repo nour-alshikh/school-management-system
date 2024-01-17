@@ -43,4 +43,8 @@ class Student extends Model
     {
         return $this->belongsTo(Guardian::class);
     }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

@@ -33,6 +33,7 @@ return [
     'delete_warning_message' => 'هل أنت متاكد من عملية الحذف؟',
     'delete_student' => 'حذف الطالب',
     'all' => 'كل الطلاب',
+    'attachments' => 'المرفقات',
 
 
 ];

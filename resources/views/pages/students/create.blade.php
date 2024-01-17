@@ -39,7 +39,7 @@
                 @endif
 
                 <div>
-                    <form action="{{ route('students.store') }}" method="POST">
+                    <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="col-xs-12">
                             <div class="col-md-12">
@@ -63,14 +63,14 @@
 
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">{{ trans('students.email') }}</label>
+                                        <label>{{ trans('students.email') }}</label>
                                         <input name="email" type="email" class="form-control">
                                         @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
-                                        <label for="title">{{ trans('students.password') }}</label>
+                                        <label>{{ trans('students.password') }}</label>
                                         <input type="password" name="password" class="form-control">
                                         @error('password')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -189,6 +189,16 @@
                                             @endfor
                                         </select>
                                         @error('academic_year')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>{{ trans('students.attachments') }}</label>
+                                        <input name="images[]" type="file" accept="image/*" multiple
+                                            class="form-control">
+                                        @error('images')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

@@ -7,9 +7,11 @@ use App\Models\BloodType;
 use App\Models\Gender;
 use App\Models\Grade;
 use App\Models\Guardian;
+use App\Models\Image;
 use App\Models\Nationality;
 use App\Models\Section;
 use App\Models\Student;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class StudentRepository implements StudentRepositoryInterface
@@ -69,7 +71,7 @@ class StudentRepository implements StudentRepositoryInterface
     public function store($request)
     {
         try {
-
+            DB::beginTransaction();
             $student = new Student();
             $student->email = $request->email;
             $student->password = Hash::make($request->password);
@@ -84,12 +86,29 @@ class StudentRepository implements StudentRepositoryInterface
             $student->guardian_id = $request->guardian;
             $student->academic_year = $request->academic_year;
             $student->save();
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $name = $image->getClientOriginalName();
+                    $image->storeAs('attachments/students/' . $request->name_en, $name, 'attachments');
+
+                    $file = new Image();
+                    $file->file_name = $name;
+                    $file->imageable_id =  $student->id;
+                    $file->imageable_type = 'App\Models\Student';
+                    $file->save();
+                }
+            }
+
+            DB::commit();
             toastr()->success(trans('messages.added_message'));
             return redirect()->route('students.create');
         } catch (\Exception $e) {
+            DB::rollBack();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
+
     public function get_sections($id)
     {
         $sections_list = Section::where('classroom_id', $id)->pluck('name', 'id');

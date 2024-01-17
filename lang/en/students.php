@@ -37,6 +37,7 @@ return [
     'search_with_student' => 'Search by student',
     'all' => 'All students',
     'delete_student' => 'Delete Student',
+    'attachments' => 'Attachments',
 
 
 ];
