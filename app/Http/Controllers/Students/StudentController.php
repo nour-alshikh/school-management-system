@@ -48,9 +48,9 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        return $this->student->show($id);
     }
 
     /**
@@ -76,5 +76,18 @@ class StudentController extends Controller
     {
 
         return $this->student->delete($request);
+    }
+    public function upload_attachments(Request $request)
+    {
+
+        return $this->student->upload_attachments($request);
+    }
+    public function download_attachment($student_name, $file_name)
+    {
+        return $this->student->download_attachment($student_name, $file_name);
+    }
+    public function delete_attachment(Request $request)
+    {
+        return $this->student->delete_attachment($request);
     }
 }

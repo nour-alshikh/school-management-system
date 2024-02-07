@@ -13,6 +13,7 @@ use App\Models\Section;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class StudentRepository implements StudentRepositoryInterface
 {
@@ -90,7 +91,7 @@ class StudentRepository implements StudentRepositoryInterface
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
                     $name = $image->getClientOriginalName();
-                    $image->storeAs('attachments/students/' . $request->name_en, $name, 'attachments');
+                    $image->storeAs('attachments/students/' . $request->name, $name, 'attachments');
 
                     $file = new Image();
                     $file->file_name = $name;
@@ -120,5 +121,39 @@ class StudentRepository implements StudentRepositoryInterface
         $student->delete();
         toastr()->success(trans('messages.deleted_message'));
         return redirect()->route('students.index');
+    }
+
+    public function show($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('pages.students.show', compact('student'));
+    }
+    public function upload_attachments($request)
+    {
+
+        foreach ($request->file('images') as $image) {
+            $name = $image->getClientOriginalName();
+            $image->storeAs('attachments/students/' . $request->name, $name, 'attachments');
+
+            $file = new Image();
+            $file->file_name = $name;
+            $file->imageable_id =  $request->id;
+            $file->imageable_type = 'App\Models\Student';
+            $file->save();
+        }
+
+        return redirect()->back();
+    }
+    public function download_attachment($student_name, $file_name)
+    {
+        return response()->download(public_path("attachments\students\\" . $student_name . "\\" . $file_name));
+    }
+    public function delete_attachment($request)
+    {
+        Storage::disk('attachments')->delete("attachments\students\\" . $request->student_name . "\\" . $request->file_name);
+
+        Image::where('id', $request->id)->delete();
+        toastr()->success(trans('messages.deleted_message'));
+        return redirect()->back();
     }
 }

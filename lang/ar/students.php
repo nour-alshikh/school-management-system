@@ -34,6 +34,7 @@ return [
     'delete_student' => 'حذف الطالب',
     'all' => 'كل الطلاب',
     'attachments' => 'المرفقات',
+    'download' => 'تنزيل',
 
 
 ];

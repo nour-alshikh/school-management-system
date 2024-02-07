@@ -76,6 +76,10 @@
                                             title="{{ trans('students.delete') }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
+                                        <a class="btn btn-warning btn-sm"
+                                            href="{{ route('students.show', $student->id) }}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                     </td>
 
                                     @include('pages.students.modals.delete-modal')

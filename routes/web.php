@@ -43,6 +43,9 @@ Route::group([
     ##################### students #####################
     Route::resource('students', StudentController::class);
     Route::get('/get-sections/{id}', [StudentController::class, 'get_sections']);
+    Route::post('/upload-attachments', [StudentController::class, 'upload_attachments']);
+    Route::get('/download-attachment/{student_name}/{file_name}', [StudentController::class, 'download_attachment']);
+    Route::post('/delete-attachment', [StudentController::class, 'delete_attachment']);
 
     Livewire::setUpdateRoute(function ($handle) {
         return Route::post('/livewire/update', $handle);
